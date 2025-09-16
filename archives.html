@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ARCHIVES – Arya Shadan</title>
+  <style>
+    @font-face {
+      font-family: 'AryaHand2';
+      src: url('AryaHand2.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background: white;
+      margin: 0;
+      font: 16px/1.6 'AryaHand2', serif;
+      color: black;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .page { max-width: 900px; width: 100%; }
+
+    nav {
+      margin-bottom: 2rem;
+    }
+    nav a {
+      margin-right: 1.5rem;
+      text-decoration: none;
+      color: black;
+      font-size: 2rem;
+      line-height: 1.4;
+    }
+    nav a:hover {
+      color: #444;   /* match index page */
+    }
+
+    .archives-item { margin-bottom: 3rem; }
+    .media { margin-bottom: 1rem; }
+
+    .cursor {
+      font-family: 'AryaHand2', serif;
+      font-size: 1em;
+      margin-left: 2px;
+      animation: blink 1s steps(1,end) infinite;
+    }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    .typed { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+    </nav>
+
+    <div class="archives-item">
+      <div class="media">
+        <img src="https://via.placeholder.com/600x400" alt="Placeholder" style="max-width:100%; height:auto;">
+      </div>
+      <p><span id="typed-bio1" class="typed"></span><span id="cursor-bio1" class="cursor">.</span></p>
+    </div>
+
+    <div class="archives-item">
+      <div class="media">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/yourname/yourmix"></iframe>
+      </div>
+      <p><span id="typed-bio2" class="typed"></span><span id="cursor-bio2" class="cursor">.</span></p>
+    </div>
+  </div>
+
+  <script>
+    const bio1Text = "Placeholder description for the first archive item.\nReplace with your own text.";
+    const bio2Text = "Placeholder description for the second archive item.\nReplace with your own text.";
+    const stepMs = 40;
+
+    function typeText(el, cursor, text, cb) {
+      el.textContent = "";
+      let i = 0;
+      cursor.style.display = "inline-block";
+      (function tick() {
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i);
+          i++;
+          setTimeout(tick, stepMs);
+        } else {
+          cursor.style.display = "none";
+          cb && cb();
+        }
+      })();
+    }
+
+    const typedBio1 = document.getElementById("typed-bio1");
+    const cursorBio1 = document.getElementById("cursor-bio1");
+    const typedBio2 = document.getElementById("typed-bio2");
+    const cursorBio2 = document.getElementById("cursor-bio2");
+
+    typeText(typedBio1, cursorBio1, bio1Text, () => {
+      typeText(typedBio2, cursorBio2, bio2Text);
+    });
+  </script>
+</body>
+</html>
