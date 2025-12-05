@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>ARYA SHADAN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     @font-face {
       font-family: 'AryaHand2';
@@ -11,12 +12,8 @@
       font-weight: normal;
       font-style: normal;
     }
-
     :root { --gap: 32px; }
-
-    /* fluid media everywhere */
     img, video, iframe { max-width: 100%; height: auto; display: block; }
-
     body {
       background: white;
       margin: 0;
@@ -26,17 +23,14 @@
       place-items: center;
       padding: 24px;
     }
-
-    /* Two-column hero: left = text, right = image */
     .hero {
       width: min(1100px, 100%);
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: var(--gap);
-      min-height: 80vh; /* gives nice vertical balance on tall phones */
+      min-height: 80vh;
     }
-
     .left {
       display: flex;
       flex-direction: column;
@@ -44,7 +38,6 @@
       align-items: center;
       text-align: center;
     }
-
     h1 {
       font-size: clamp(2rem, 6vw, 3rem);
       margin: 0;
@@ -53,16 +46,14 @@
       justify-content: center;
       color: black;
     }
-
     .tabs {
       display: flex;
       gap: 28px;
       font-size: clamp(1.1rem, 3.2vw, 1.6rem);
       justify-content: center;
     }
-    .tabs a { color: black; text-decoration: none; padding: 6px 4px; } /* finger-friendly */
+    .tabs a { color: black; text-decoration: none; padding: 6px 4px; }
     .tabs a:hover { color: #444; }
-
     .cursor {
       font-family: 'AryaHand2', serif;
       font-size: 1em;
@@ -71,19 +62,14 @@
     }
     @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
     .typed { white-space: pre; }
-
     .art-wrap { display: grid; place-items: center; }
     .art { width: 100%; max-width: 460px; height: auto; display: block; }
-
-    /* Mobile */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 22px; }
       .left { align-items: center; text-align: center; }
       h1 { justify-content: center; }
       .tabs { justify-content: center; }
     }
-
-    /* reduce animations if user prefers */
     @media (prefers-reduced-motion: reduce) {
       .cursor { animation: none; }
     }
@@ -91,12 +77,10 @@
 </head>
 <body>
   <main class="hero">
-    <!-- LEFT: typing + tabs -->
     <section class="left">
       <h1>
         <span id="typed-title" class="typed"></span><span id="cursor-title" class="cursor">.</span>
       </h1>
-
       <nav class="tabs" aria-label="Primary">
         <a href="about.html">
           <span id="typed-about" class="typed"></span><span id="cursor-about" class="cursor" style="display:none;">.</span>
@@ -106,26 +90,21 @@
         </a>
       </nav>
     </section>
-
-    <!-- RIGHT: artwork -->
     <aside class="art-wrap" aria-label="Artwork">
       <img class="art" src="home-art.jpg" alt="Colored-pencil style drawing of Arya in a vineyard landscape">
     </aside>
   </main>
-
   <script>
     const titleText = "ARYA SHADAN";
     const aboutText = "ABOUT";
     const archivesText = "ARCHIVES";
     const stepMs = 120;
-
     const typedTitle    = document.getElementById("typed-title");
     const cursorTitle   = document.getElementById("cursor-title");
     const typedAbout    = document.getElementById("typed-about");
     const cursorAbout   = document.getElementById("cursor-about");
     const typedArchives = document.getElementById("typed-archives");
     const cursorArchives= document.getElementById("cursor-archives");
-
     function typeText(el, cursor, text, delay, done) {
       let i = 0;
       setTimeout(function tick() {
@@ -139,7 +118,6 @@
         }
       }, delay);
     }
-
     typeText(typedTitle, cursorTitle, titleText, 300, () => {
       cursorAbout.style.display = "inline-block";
       typeText(typedAbout, cursorAbout, aboutText, 200, () => {

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>About – Arya Shadan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     @font-face {
       font-family: 'AryaHand2';
@@ -11,10 +12,7 @@
       font-weight: normal;
       font-style: normal;
     }
-
-    /* fluid media */
     img, video, iframe { max-width: 100%; height: auto; display: block; }
-
     body {
       background: white;
       margin: 0;
@@ -25,18 +23,16 @@
       padding: 40px 20px;
     }
     .page { max-width: 700px; width: 100%; }
-
     nav { margin-bottom: 2rem; }
     nav a {
       margin-right: 1rem;
       text-decoration: none;
       color: black;
-      font-size: clamp(1.2rem, 3.4vw, 2rem); /* responsive, matches Archives feel */
+      font-size: clamp(1.2rem, 3.4vw, 2rem);
       line-height: 1.4;
-      padding: 6px 4px; /* tap area */
+      padding: 6px 4px;
     }
     nav a:hover { color: #444; }
-
     .cursor {
       font-family: 'AryaHand2', serif;
       font-size: 1em;
@@ -45,14 +41,11 @@
     }
     @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
     .typed { white-space: pre-wrap; }
-
-    /* phones/tablets */
     @media (max-width: 700px) {
       body { padding: 28px 16px; }
       .page { max-width: 100%; }
       nav a { margin-right: 0.75rem; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       .cursor { animation: none; }
     }
@@ -64,16 +57,13 @@
       <a href="index.html">HOME</a>
       <a href="archives.html">ARCHIVES</a>
     </nav>
-
     <p><span id="typed-bio" class="typed"></span><span id="cursor-bio" class="cursor">.</span></p>
   </div>
-
   <script>
-    const bioText = "WORK IN PROGRESS... \n\n COMING SOON.";
+    const bioText = "WELCOME TO ARYASHADAN.COM \n FOR THE THINGS I LOVE, AND THE FREEDOM TO CREATE THEM."
     const stepMs = 100;
     const typedBio = document.getElementById("typed-bio");
     const cursorBio = document.getElementById("cursor-bio");
-
     function typeText(el, cursor, text) {
       el.textContent = "";
       let i = 0;
@@ -88,7 +78,6 @@
         }
       })();
     }
-
     typeText(typedBio, cursorBio, bioText);
   </script>
 </body>
